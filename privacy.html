@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VULMS Tools — Privacy Policy</title>
+    <!--
+      The extension's privacy policy, and the one source of it: Settings > About
+      opens this page, and it is the text to host for the store listing. It is
+      self-contained so it reads the same opened from the extension or from any
+      web host. Keep it in step with the code: every network destination, every
+      stored value and every permission is named here.
+    -->
+    <style>
+      @font-face {
+        font-family: "Inter Variable";
+        font-style: normal;
+        font-display: fallback;
+        font-weight: 100 900;
+        src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+      }
+
+      :root {
+        color-scheme: light dark;
+        --canvas: #f5f7f7;
+        --bg: #ffffff;
+        --bg-subtle: #f1f3f3;
+        --border: #e3e7e8;
+        --fg: #090b0c;
+        --fg-muted: #516165;
+        --accent-text: #1447e6;
+        --accent-subtle: #eff6ff;
+        --accent-border: #bedbff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --canvas: #090b0c;
+          --bg: #161b1d;
+          --bg-subtle: #22292b;
+          --border: #2d3234;
+          --fg: #f9fbfb;
+          --fg-muted: #9ca8ab;
+          --accent-text: #51a2ff;
+          --accent-subtle: #192a3f;
+          --accent-border: #1c398e;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 32px 16px 64px;
+        background: var(--canvas);
+        color: var(--fg);
+        font-family:
+          "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 32px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+      }
+
+      h1 {
+        margin: 0 0 4px;
+        font-size: 28px;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+
+      h2 {
+        margin: 40px 0 8px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-size: 19px;
+        line-height: 1.3;
+      }
+
+      h3 {
+        margin: 24px 0 4px;
+        font-size: 16px;
+      }
+
+      p,
+      ul {
+        margin: 8px 0;
+      }
+
+      li + li {
+        margin-top: 4px;
+      }
+
+      .meta {
+        margin: 0;
+        color: var(--fg-muted);
+        font-size: 13px;
+      }
+
+      .summary {
+        margin: 24px 0 0;
+        padding: 16px 20px;
+        background: var(--accent-subtle);
+        border: 1px solid var(--accent-border);
+        border-radius: 12px;
+      }
+
+      .summary p:first-child {
+        margin-top: 0;
+      }
+
+      .summary p:last-child {
+        margin-bottom: 0;
+      }
+
+      .table-wrap {
+        margin: 12px 0;
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 8px 10px;
+        border: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--bg-subtle);
+        font-weight: 600;
+      }
+
+      code {
+        padding: 1px 5px;
+        background: var(--bg-subtle);
+        border-radius: 4px;
+        font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+        font-size: 0.9em;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 560px) {
+        body {
+          padding: 0;
+        }
+
+        main {
+          padding: 24px 16px;
+          border: 0;
+          border-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>VULMS Tools Privacy Policy</h1>
+      <p class="meta">Last updated 7 October 2026 · Applies to version 2.0.0 and later</p>
+
+      <div class="summary">
+        <p>
+          VULMS Tools sends data to <strong>one place, and only when you ask it to</strong>: the
+          AI provider you chose, using an API key you supplied, at the moment you press
+          <strong>Solve with AI</strong> or <strong>Test key</strong>.
+        </p>
+        <p>
+          Nothing else leaves your device. There is no analytics, no tracking, no error
+          reporting, no advertising and no account. We run no server, so your data has nowhere
+          to go. The AI feature is <strong>off by default</strong>; if you never turn it on, the
+          extension makes no network requests at all.
+        </p>
+      </div>
+
+      <p>
+        VULMS Tools is an independent browser extension. It is not made by, endorsed by or
+        affiliated with the Virtual University of Pakistan, DigiSkills or Cisco.
+      </p>
+
+      <h2>What leaves your device</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Destination</th>
+              <th scope="col">What is sent</th>
+              <th scope="col">When</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>api.anthropic.com</code></td>
+              <td>The question, as described below</td>
+              <td>Only when you press Solve with AI or Test key with Anthropic selected</td>
+            </tr>
+            <tr>
+              <td><code>api.openai.com</code></td>
+              <td>The same</td>
+              <td>The same, with OpenAI selected</td>
+            </tr>
+            <tr>
+              <td><code>generativelanguage.googleapis.com</code></td>
+              <td>The same</td>
+              <td>The same, with Google selected</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Only the provider you have selected is contacted. These requests go directly from your
+        browser to that provider; they do not pass through any server of ours. Your key
+        authenticates your own account with the provider, and any usage is billed to you.
+      </p>
+
+      <h3>What is sent to an AI provider</h3>
+      <p>When you press <strong>Solve with AI</strong> on a quiz question, the request contains:</p>
+      <ul>
+        <li>a fixed instruction, the same text every time;</li>
+        <li><strong>the question and its answer options</strong>, exactly as shown on the page;</li>
+        <li>the model you chose;</li>
+        <li>and, in the request headers, <strong>your API key</strong>.</li>
+      </ul>
+      <p>
+        That is the whole request. It does not include your name, your student ID, your LMS
+        login, the page address, cookies, your other tabs, your course list, your marks, or
+        anything else from the page. <strong>Test key</strong> sends even less: a minimal
+        request with no question in it, only to check that the key works.
+      </p>
+
+      <h3>What the provider does with it</h3>
+      <p>
+        Once a question reaches Anthropic, OpenAI or Google, it is governed by that provider's
+        privacy policy and your agreement with them, not by this policy. Some providers keep
+        API requests for a period. We cannot see, control or delete what you send them.
+      </p>
+
+      <h3>You stay in control</h3>
+      <ul>
+        <li>The AI feature is off until you turn it on, and nothing is sent until you press the button.</li>
+        <li>It cannot work without an API key you obtained and entered yourself.</li>
+        <li>Turning the feature off stops it immediately, in tabs that are already open.</li>
+        <li>Nothing is sent in the background, on a timer or when a page loads.</li>
+      </ul>
+
+      <h2>What is stored on your device</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">What</th>
+              <th scope="col">Where</th>
+              <th scope="col">Leaves your device?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Which features are on, which LMS theme you chose, and the theme to restore with the shortcut</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Where you left the extension's panels, and whether they are folded</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Whether a one-time tip has been shown</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><strong>Your AI API keys</strong></td>
+              <td>Extension storage on this computer</td>
+              <td><strong>No, never synced</strong></td>
+            </tr>
+            <tr>
+              <td>Language, appearance, animation and diagnostic-log preferences, and your AI provider and model choice</td>
+              <td>Chrome's synced extension storage</td>
+              <td>Only through your own Chrome sync, to your own devices</td>
+            </tr>
+            <tr>
+              <td>A lecture-completion run in progress</td>
+              <td>Session storage, in memory only</td>
+              <td>No; gone when the browser closes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Synced preferences travel between your devices through Google's Chrome sync, the same
+        way your bookmarks do; we never see them. To stop that, turn off extension sync in
+        Chrome. Your API keys are never synced.
+      </p>
+      <p>
+        Nothing else is stored: no quiz content, no assignment text, no page contents, no
+        browsing history, no student ID and no password. A question sent to an AI provider is
+        not kept by the extension once the answer is shown.
+      </p>
+      <p>
+        <strong>Backup</strong> in Settings writes your preferences to a file on your computer.
+        Your API keys are included only if you tick that option; if you do, keep the file
+        private.
+      </p>
+
+      <h3>About your API key</h3>
+      <p>
+        Your key is stored in the extension's local storage <strong>without encryption</strong>.
+        Plainly, that means:
+      </p>
+      <ul>
+        <li>Other extensions <strong>cannot</strong> read it; extension storage is private to each extension.</li>
+        <li>Websites, including the LMS, <strong>cannot</strong> read it; it is only ever used inside the extension's background process.</li>
+        <li>Someone with access to your computer and your signed-in browser profile <strong>could</strong> read it, as they could your saved passwords.</li>
+      </ul>
+      <p>
+        If you share this computer with someone you would not trust with your key, use a key
+        with a spending limit, or do not save one.
+      </p>
+
+      <h2>What the extension reads on a page</h2>
+      <p>
+        VULMS Tools runs only on <code>vu.edu.pk</code>, <code>digiskills.pk</code> and
+        <code>netacad.com</code>. On those pages it reads the content already displayed to you,
+        in order to:
+      </p>
+      <ul>
+        <li>recolour the page in the theme you chose, checking that text stays readable;</li>
+        <li>copy, screenshot or solve a question when you ask;</li>
+        <li>allow pasting in the assignment editor;</li>
+        <li>build a PDF of a quiz result you are viewing;</li>
+        <li>list the page's own links, courses and tabs when you open Quick jump.</li>
+      </ul>
+      <p>
+        What it reads stays on your device unless you press Solve with AI, in which case only
+        the question and its options go to the provider you chose. Screenshots and PDFs are
+        made in your browser and saved to your downloads folder; they are not uploaded
+        anywhere. The extension does not run on, or read, any other website.
+      </p>
+
+      <h3>Lecture completion</h3>
+      <p>
+        One feature changes something outside your browser: marking lectures complete updates
+        <strong>the progress record your university keeps for you</strong>. It works through
+        the LMS page you are already signed in to, the same way watching the lecture would, and
+        sends nothing to us or to anyone else. Because it cannot be undone from the extension,
+        it always asks first: one press for the lecture on screen, and for a whole course a
+        list of what will change and a confirmation before anything happens.
+      </p>
+
+      <h2>Permissions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Permission</th>
+              <th scope="col">Why it is needed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Storage</td>
+              <td>Remember your settings, your switches and your API key.</td>
+            </tr>
+            <tr>
+              <td>Tabs</td>
+              <td>Let the toolbar popup see which page you are on, so it can show the tools that work there.</td>
+            </tr>
+            <tr>
+              <td>Context menus</td>
+              <td>Add the extension's actions to the right-click menu on supported pages.</td>
+            </tr>
+            <tr>
+              <td>Downloads</td>
+              <td>Save a screenshot or PDF you asked for to your downloads folder.</td>
+            </tr>
+            <tr>
+              <td>Clipboard write</td>
+              <td>Copy a question to your clipboard when you press Copy.</td>
+            </tr>
+            <tr>
+              <td>Scripting</td>
+              <td>Apply your theme before a page appears, load the screenshot tool when you press Screenshot, and run the LMS's own functions when you ask, such as marking a lecture complete.</td>
+            </tr>
+            <tr>
+              <td>Offscreen</td>
+              <td>Lay out a PDF in a hidden page inside the extension.</td>
+            </tr>
+            <tr>
+              <td>Access to <code>vu.edu.pk</code>, <code>digiskills.pk</code>, <code>netacad.com</code></td>
+              <td>Work on those sites, and nowhere else.</td>
+            </tr>
+            <tr>
+              <td>Access to the three AI provider addresses</td>
+              <td>Send your question to the provider you chose, when you ask.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The extension has no access to any other website, your email, or your other tabs.</p>
+
+      <h2>Deleting your data</h2>
+      <ul>
+        <li>Removing the extension deletes everything it stored on this computer, including your API key.</li>
+        <li>To delete only the key, clear it in Settings and press Save.</li>
+        <li>Synced preferences are removed when you remove the extension while signed in to the Chrome profile that holds them.</li>
+        <li>Anything already sent to an AI provider can only be deleted through that provider.</li>
+      </ul>
+
+      <h2>Our commitments</h2>
+      <ul>
+        <li>No analytics or tracking will be added without your explicit opt-in, off by default.</li>
+        <li>Your data will not be uploaded to any server of ours, sold, or shared with anyone.</li>
+        <li>Nothing is sent to an AI provider unless you press a button to send it.</li>
+        <li>Nothing is recorded on your university progress unless you press a button to record it.</li>
+        <li>Any new place the extension sends data will be listed in this policy before it ships.</li>
+      </ul>
+
+      <h2>Changes and contact</h2>
+      <p>
+        When this policy changes, the new version ships with the extension update and the date
+        at the top changes. For questions, or to report behaviour that contradicts this policy,
+        use the support contact on the extension's Chrome Web Store page.
+      </p>
+    </main>
+  </body>
+</html>
