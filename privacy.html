@@ -172,7 +172,7 @@
   <body>
     <main>
       <h1>VULMS Tools Privacy Policy</h1>
-      <p class="meta">Last updated 7 October 2026 · Applies to version 2.0.0 and later</p>
+      <p class="meta">Last updated 12 October 2026 · Applies to version 2.1.0 and later</p>
 
       <div class="summary">
         <p>
@@ -181,10 +181,13 @@
           <strong>Solve with AI</strong> or <strong>Test key</strong>.
         </p>
         <p>
-          Nothing else leaves your device. There is no analytics, no tracking, no error
-          reporting, no advertising and no account. We run no server, so your data has nowhere
-          to go. The AI feature is <strong>off by default</strong>; if you never turn it on, the
-          extension makes no network requests at all.
+          Nothing else leaves your device, apart from the AI request above and, for the
+          Reminders page and the grade book's GPA, page requests to VULMS itself, described
+          below. There is no
+          analytics, no tracking, no error reporting, no advertising and no account. We run no
+          server, so your data has nowhere to go. The AI feature is <strong>off by
+          default</strong>; if you never turn it on, no AI provider is contacted and the only
+          requests the extension makes are to VULMS itself.
         </p>
       </div>
 
@@ -225,7 +228,14 @@
       </div>
 
       <p>
-        Only the provider you have selected is contacted. These requests go directly from your
+        For the Reminders page, the extension also asks VULMS for some of its own pages (your
+        To Do Calendar, Account Book, Lecture Schedule, Notice Board and Home) from the page you are
+        signed in to. Home is requested only when you are not already on it; on Home, the
+        page in front of you is read instead. These are the same page requests your own clicks would make, sent to
+        the same address, with your own session; nothing is sent to us or to anyone else.
+      </p>
+      <p>
+        Only the AI provider you have selected is contacted. These requests go directly from your
         browser to that provider; they do not pass through any server of ours. Your key
         authenticates your own account with the provider, and any usage is billed to you.
       </p>
@@ -288,17 +298,62 @@
               <td>No</td>
             </tr>
             <tr>
+              <td>The credit hours of your programme's courses, read from your study scheme page, so the grade book can show each semester's GPA</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Your grade book results (semester, course code and grade point), for the dashboard's SGPA/CGPA trend</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>What the Reminders page read from VULMS: your To Do Calendar, Account Book due dates and balances, Lecture Schedule, Notice Board, and the alerts and announcement counts on Home, with when each was last checked</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Reminders you wrote yourself, and which notices and course announcements you have seen or opened</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>A hash of your student ID, to keep each student's reminders apart on a shared computer (the ID itself is not kept)</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Which deadline alerts were already shown</td>
+              <td>Extension storage on this computer</td>
+              <td>No</td>
+            </tr>
+            <tr>
               <td><strong>Your AI API keys</strong></td>
               <td>Extension storage on this computer</td>
               <td><strong>No, never synced</strong></td>
             </tr>
             <tr>
-              <td>Language, appearance, animation and diagnostic-log preferences, and your AI provider and model choice</td>
+              <td>Language, appearance, animation and diagnostic-log preferences, your AI provider and model choice, and your deadline alert preferences (on or off, how long before, and whether a quiz or GDB opening also alerts)</td>
               <td>Chrome's synced extension storage</td>
               <td>Only through your own Chrome sync, to your own devices</td>
             </tr>
             <tr>
+              <td>The refresh in progress, so only one tab checks VULMS at a time</td>
+              <td>Session storage, in memory only</td>
+              <td>No; gone when the browser closes</td>
+            </tr>
+            <tr>
+              <td>When the next alert attempt may run after Chrome refused one</td>
+              <td>Session storage, in memory only</td>
+              <td>No; gone when the browser closes</td>
+            </tr>
+            <tr>
               <td>A lecture-completion run in progress</td>
+              <td>Session storage, in memory only</td>
+              <td>No; gone when the browser closes</td>
+            </tr>
+            <tr>
+              <td>That the grade book has already read your study scheme this browser session</td>
               <td>Session storage, in memory only</td>
               <td>No; gone when the browser closes</td>
             </tr>
@@ -312,13 +367,13 @@
         Chrome. Your API keys are never synced.
       </p>
       <p>
-        Nothing else is stored: no quiz content, no assignment text, no page contents, no
-        browsing history, no student ID and no password. A question sent to an AI provider is
+        Nothing else is stored: no quiz content, no submitted work or files, no other page
+        contents, no browsing history, no readable student ID and no password. A question sent to an AI provider is
         not kept by the extension once the answer is shown.
       </p>
       <p>
-        <strong>Backup</strong> in Settings writes your preferences to a file on your computer.
-        Your API keys are included only if you tick that option; if you do, keep the file
+        <strong>Backup</strong> in Settings writes your preferences, and the reminders you wrote yourself (those of every student who
+        used the extension on this Chrome profile), to a file on your computer. Your API keys are included only if you tick that option; if you do, keep the file
         private.
       </p>
 
@@ -348,13 +403,24 @@
         <li>copy, screenshot or solve a question when you ask;</li>
         <li>allow pasting in the assignment editor;</li>
         <li>build a PDF of a quiz result you are viewing;</li>
-        <li>list the page's own links, courses and tabs when you open Quick jump.</li>
+        <li>group your grade book by semester and work out each semester's GPA and CGPA: when it does not yet know a course's credit hours, opening the grade book also reads your My Study Scheme page, and once it has been read, not again until the browser restarts;</li>
+        <li>list the page's own links, courses and tabs when you open Quick jump;</li>
+        <li>remember your grade book results for the dashboard's SGPA/CGPA trend;</li>
+        <li>list your deadlines, fee due dates and balances, lectures, notices and Home alerts on the Reminders page: it reads your To Do Calendar, Account Book, Lecture Schedule, Notice Board and Home while you use VULMS, and keeps what it read so the page opens instantly and can alert you.</li>
       </ul>
       <p>
         What it reads stays on your device unless you press Solve with AI, in which case only
         the question and its options go to the provider you chose. Screenshots and PDFs are
         made in your browser and saved to your downloads folder; they are not uploaded
         anywhere. The extension does not run on, or read, any other website.
+      </p>
+
+      <h3>Reminders and notifications</h3>
+      <p>
+        The Reminders page refreshes only after something you do: loading a VULMS page, opening
+        the page, or pressing Refresh. It never fetches on a timer and never from a quiz page. Deadline alerts are Chrome notifications, off by default; Chrome asks your
+        permission when you turn them on, and they work while Chrome is running, from the last
+        refresh. The alerts say when VULMS was last checked, because you may have acted since.
       </p>
 
       <h3>Lecture completion</h3>
@@ -379,7 +445,7 @@
           <tbody>
             <tr>
               <td>Storage</td>
-              <td>Remember your settings, your switches and your API key.</td>
+              <td>Remember your settings, your switches, your API key, the grades shown on the dashboard, and what the Reminders page read.</td>
             </tr>
             <tr>
               <td>Tabs</td>
@@ -402,6 +468,14 @@
               <td>Apply your theme before a page appears, load the screenshot tool when you press Screenshot, and run the LMS's own functions when you ask, such as marking a lecture complete.</td>
             </tr>
             <tr>
+              <td>Alarms</td>
+              <td>Schedule the one timer that shows the deadline alerts you turned on.</td>
+            </tr>
+            <tr>
+              <td>Notifications (optional)</td>
+              <td>Show deadline alerts. Asked for only when you turn them on.</td>
+            </tr>
+            <tr>
               <td>Offscreen</td>
               <td>Lay out a PDF in a hidden page inside the extension.</td>
             </tr>
@@ -421,6 +495,7 @@
       <h2>Deleting your data</h2>
       <ul>
         <li>Removing the extension deletes everything it stored on this computer, including your API key.</li>
+        <li>To delete only what was read from VULMS — grades, credit hours, the Reminders page's saved readings, which announcements you opened, and the alert history — use <strong>Clear saved study data</strong> in Settings, under Backup. The reminders you wrote yourself stay until you delete them on the Reminders page or remove the extension.</li>
         <li>To delete only the key, clear it in Settings and press Save.</li>
         <li>Synced preferences are removed when you remove the extension while signed in to the Chrome profile that holds them.</li>
         <li>Anything already sent to an AI provider can only be deleted through that provider.</li>
