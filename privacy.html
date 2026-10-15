@@ -10,7 +10,7 @@
       root holds the same policy as Markdown; change both together. It is
       self-contained so it reads the same opened from the extension or from any
       web host. Keep it in step with the code: every network destination, every
-      stored value and every permission is named here.
+      kind of stored data and every permission is named here.
     -->
     <style>
       @font-face {
@@ -106,30 +106,7 @@
         color: var(--accent-text);
         text-underline-offset: 2px;
       }
-      ol {
-        margin: 8px 0;
-        padding-left: 24px;
-      }
-      .contents {
-        margin: 24px 0 0;
-        padding: 16px 20px;
-        background: var(--bg-subtle);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-      }
-      .contents p {
-        margin: 0;
-      }
-      .contents ol {
-        margin: 8px 0;
-      }
-      .contents li + li {
-        margin-top: 2px;
-      }
-      .summary ul {
-        margin: 0;
-        padding-left: 20px;
-      }
+
       .meta {
         margin: 0 0 20px;
         color: var(--fg-muted);
@@ -137,19 +114,16 @@
       }
 
       .summary {
-        margin: 24px 0 0;
+        margin: 12px 0 0;
         padding: 16px 20px;
         background: var(--accent-subtle);
         border: 1px solid var(--accent-border);
         border-radius: 12px;
       }
 
-      .summary p:first-child {
-        margin-top: 0;
-      }
-
-      .summary p:last-child {
-        margin-bottom: 0;
+      .summary ul {
+        margin: 0;
+        padding-left: 20px;
       }
 
       .table-wrap {
@@ -202,903 +176,307 @@
     <main>
       <h1>VULMS Tools Privacy Policy</h1>
       <p class="meta">
-        Effective date 13 October 2026 · Applies to VULMS Tools for Google Chrome, version
-        2.2.0 and later · Developer: vulmstools
+        Effective date 15 October 2026 · Applies to VULMS Tools for Google Chrome, version
+        2.3.0 and later · Developer: vulmstools
       </p>
 
       <p>
-        This policy explains what information the VULMS Tools browser extension (the
-        "extension") reads, stores and sends, why it does so, and what control you have.
-        "We", "us" and "our" mean the developer of the extension. "You" means the person who
-        installs and uses it.
-      </p>
-      <p>
-        VULMS Tools is an independent product. It is not made by, endorsed by or affiliated
-        with the Virtual University of Pakistan (VU), DigiSkills, Cisco or Cisco Networking
-        Academy, Anthropic, OpenAI or Google.
+        VULMS Tools (the "extension") is an independent product. It is not made by, endorsed by
+        or affiliated with the Virtual University of Pakistan (VU), DigiSkills, Cisco, Anthropic,
+        OpenAI or Google.
       </p>
 
-      <nav class="contents" aria-label="Contents">
-        <p><strong>Contents</strong></p>
-        <ol>
-          <li><a href="#summary">Summary</a></li>
-          <li><a href="#not-collected">Information we do not collect</a></li>
-          <li><a href="#on-device">Information the extension processes on your device</a></li>
-          <li><a href="#leaves-device">Information that leaves your device</a></li>
-          <li><a href="#page-changes">Changes the extension makes to pages</a></li>
-          <li><a href="#permissions">Permissions and why they are needed</a></li>
-          <li><a href="#security">Security</a></li>
-          <li><a href="#retention">Data retention and deletion</a></li>
-          <li><a href="#rights">Your choices and rights</a></li>
-          <li><a href="#sharing">Sharing, sale and the Chrome Web Store User Data Policy</a></li>
-          <li><a href="#third-parties">Third-party services and links</a></li>
-          <li><a href="#children">Children's privacy</a></li>
-          <li><a href="#international">International users</a></li>
-          <li><a href="#changes">Changes to this policy</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ol>
-        <p><a href="#storage-reference">Appendix: storage reference</a></p>
-      </nav>
-
-      <h2 id="summary">1. Summary</h2>
+      <h2 id="summary">1. In short</h2>
       <div class="summary">
         <ul>
           <li>
-            <strong>We collect nothing.</strong> We run no server, have no user accounts and
-            receive no data from the extension. It contains no analytics, telemetry, crash
-            reporting, advertising or tracking of any kind.
+            <strong>We collect nothing.</strong> We run no server and have no user accounts. The
+            extension contains no analytics, telemetry, advertising or tracking.
           </li>
           <li>
             <strong>Your data stays on your device</strong>, in Chrome's extension storage,
-            except in the cases listed in section 4. Each of those happens only on the websites
-            the extension supports, and almost all of them happen only when you press a button.
+            except in the cases listed in section 3.
           </li>
           <li>
-            <strong>AI help is optional and off by default.</strong> If you turn it on and press
-            <strong>Solve with AI</strong>, the quiz question you chose is sent straight from your
-            browser to the AI provider you selected (Anthropic, OpenAI or Google), using an API key
-            that you supply.
+            <strong>It works only on</strong> <code>vu.edu.pk</code>, <code>digiskills.pk</code>
+            and <code>netacad.com</code>, plus the three AI provider addresses in section 3.1. It
+            cannot read any other website.
           </li>
           <li>
-            <strong>The extension works only on</strong> <code>vu.edu.pk</code>,
-            <code>digiskills.pk</code> and <code>netacad.com</code>, plus the three AI provider
-            addresses. It cannot read or change any other website.
-          </li>
-          <li>
-            <strong>Some features act on your learning platforms on your behalf.</strong> These
-            include requesting your own VULMS pages for the Reminders page, recording lecture
-            watch time with your university, and stopping a quiz page from seeing when you switch
-            tabs. Section 4 and section 5 describe each one plainly, so you can decide whether to
-            keep it switched on.
-          </li>
-          <li>
-            <strong>We do not sell, rent or share your information</strong>, and we never use it
-            for advertising, profiling or decisions about credit or lending.
+            <strong>We never sell or share your information</strong>, and never use it for
+            advertising, profiling, credit or lending.
           </li>
         </ul>
       </div>
 
-      <h2 id="not-collected">2. Information we do not collect</h2>
+      <h2 id="stored">2. What is stored on your device</h2>
       <p>
-        We do not collect, receive, store or have access to any of the following. Where the
-        extension handles one of these items on your device, the data stays on your device
-        unless section 4 says otherwise:
-      </p>
-      <ul>
-        <li>your name, email address, phone number or other contact details;</li>
-        <li>
-          your browsing history, or any information about websites other than the three
-          supported learning platforms;
-        </li>
-        <li>
-          your university marks, quiz answers, assignments, fees or other academic or financial
-          records;
-        </li>
-        <li>your login credentials or API keys;</li>
-        <li>your IP address, device identifiers, location or usage statistics.</li>
-      </ul>
-
-      <h2 id="on-device">3. Information the extension processes on your device</h2>
-
-      <h3>3.1 Page content it reads</h3>
-      <p>
-        The extension reads content that is already on the supported pages you open, and only
-        to provide the feature concerned:
-      </p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>What it reads</th>
-              <th>Where</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>LMS theme</td>
-              <td>The page's colours and layout, to recolour it and keep text readable</td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>Quiz toolbar and NetAcad question tools</td>
-              <td>
-                The question and answer options on the screen, when you press Copy, Screenshot or
-                Solve
-              </td>
-              <td>VU LMS quizzes, Cisco NetAcad</td>
-            </tr>
-            <tr>
-              <td>Quiz result PDF</td>
-              <td>The quiz result you are viewing, when you press Save as PDF</td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>GDB helper</td>
-              <td>The graded discussion question, when you press Copy</td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>Semester-wise grades</td>
-              <td>
-                Your grade book (semester, course code, grade point) and, when needed, your My
-                Study Scheme page (course codes and credit hours)
-              </td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>Reminders page</td>
-              <td>
-                Your To Do Calendar, Account Book (fee due dates and balances), Lecture Schedule,
-                Notice Board and Home page alerts and announcement counts
-              </td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>Quick jump</td>
-              <td>The page's own menu links, your course list and the page's tabs, when you open it</td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>Resume lesson</td>
-              <td>The page's "current lesson" link</td>
-              <td>VU LMS</td>
-            </tr>
-            <tr>
-              <td>Lecture bypass</td>
-              <td>
-                The lecture page's identifiers: your student ID as shown on the page, course code,
-                semester, lesson number, content and video IDs, and the video length
-              </td>
-              <td>VU LMS, DigiSkills</td>
-            </tr>
-            <tr>
-              <td>Accounts vault</td>
-              <td>The sign-in form fields, so it can fill them when you choose an account</td>
-              <td>VU LMS sign-in page</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>
-        The extension does not read your other tabs, your browser history, your bookmarks or any
-        page outside the supported sites.
-      </p>
-
-      <h3>3.2 What it stores</h3>
-      <p>
-        Everything below is stored in Chrome's extension storage, which only this extension can
-        read. It is not sent to us. The <a href="#storage-reference">appendix</a> lists the
-        exact storage entries.
-      </p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Information</th>
-              <th>Stored in</th>
-              <th>Leaves your device?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Which features are switched on, the LMS theme you chose, and the theme the keyboard
-                shortcut restores
-              </td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>
-                Where you left the extension's panels, and whether they are folded; whether a
-                one-time tip was shown
-              </td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>Credit hours by course code, read from your study scheme</td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>
-                Your grade book results (semester, course code, grade point), for the dashboard's
-                SGPA/CGPA trend
-              </td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>
-                What the Reminders page last read from VULMS (deadlines, fee due dates and
-                balances, lecture schedule, notices, Home alerts and announcement counts) and when
-                each was checked
-              </td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>
-                Reminders you write yourself; which notices and announcements you have seen or
-                opened; which deadline alerts were already shown
-              </td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>
-                A SHA-256 hash of your student ID, used to keep each student's reminders apart on a
-                shared computer. The ID itself is not stored for this purpose (see
-                <a href="#security">section 7</a>)
-              </td>
-              <td>Local storage</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>Your AI provider API keys, if you enter any</td>
-              <td>Local storage, not encrypted (see <a href="#security">section 7</a>)</td>
-              <td>No. Never synced</td>
-            </tr>
-            <tr>
-              <td>
-                VU logins you save in the Accounts vault: a label, the student ID and the password,
-                encrypted with AES-256-GCM (see <a href="#security">section 7</a>)
-              </td>
-              <td>Local storage</td>
-              <td>No. Never synced</td>
-            </tr>
-            <tr>
-              <td>
-                Language, appearance, motion and diagnostic-log preferences; your chosen AI
-                provider and model; deadline alert preferences
-              </td>
-              <td>Chrome sync storage</td>
-              <td>Only through your own Chrome sync (<a href="#chrome-sync">section 4.4</a>)</td>
-            </tr>
-            <tr>
-              <td>
-                Short-lived working state: a refresh in progress, the next alert retry time, a
-                lecture run in progress, and whether the study scheme was read this session
-              </td>
-              <td>Session storage, in memory only</td>
-              <td>No. Cleared when the browser closes</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>
-        The extension does not store quiz content, AI answers, your submitted work, the content
-        of other pages, or your browsing history. Diagnostic messages go only to the browser's
-        developer console. They are not saved or sent anywhere.
-      </p>
-
-      <h2 id="leaves-device">4. Information that leaves your device</h2>
-
-      <h3>4.1 AI providers (optional, off by default)</h3>
-      <p>
-        The <strong>Solve with AI</strong> feature is off until you turn it on in Settings and
-        enter an API key that you obtained from the provider yourself.
-      </p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Destination</th>
-              <th>When</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>api.anthropic.com</code></td>
-              <td>Only when you press Solve with AI or Test key with Anthropic selected</td>
-            </tr>
-            <tr>
-              <td><code>api.openai.com</code></td>
-              <td>Only when you press Solve with AI or Test key with OpenAI selected</td>
-            </tr>
-            <tr>
-              <td><code>generativelanguage.googleapis.com</code></td>
-              <td>Only when you press Solve with AI or Test key with Google selected</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p><strong>What is sent when you press Solve with AI:</strong></p>
-      <ul>
-        <li>a fixed instruction, which is the same text every time;</li>
-        <li>
-          the quiz question or questions you chose and their answer options, exactly as they
-          appear on the page;
-        </li>
-        <li>the model you selected;</li>
-        <li>
-          your API key, in the request header, as the credential for your own account with that
-          provider.
-        </li>
-      </ul>
-      <p>
-        The request does <strong>not</strong> include your name, student ID, LMS login, cookies,
-        the page address, your course list, your marks, your other tabs or anything else from the
-        page. <strong>Test key</strong> sends a minimal request with no question in it, such as a
-        one-word prompt or a request for the provider's list of models, only to check that the
-        key works.
-      </p>
-      <p>
-        Requests go directly from your browser to the one provider you selected. They do not pass
-        through any server of ours. The provider bills any usage to your account. The answer is
-        shown to you and is not kept by the extension.
-      </p>
-      <p>
-        Once your request reaches the provider, the provider's own privacy policy and terms, and
-        your agreement with them, govern it. Providers may keep API requests for a period. We
-        cannot see, control or delete anything you send to them.
-      </p>
-
-      <h3>4.2 Requests to your learning platform, in your own session</h3>
-      <p>
-        These requests go only to the platform you are signed in to. They use your existing
-        session, the same way your own clicks would. Nothing is sent to us or to anyone else.
+        The extension reads the supported pages you open only to run its features. It keeps the
+        following in Chrome's extension storage, which only this extension can read:
       </p>
       <ul>
         <li>
-          <strong>Reminders page (VU LMS).</strong> The extension requests your To Do Calendar,
-          Account Book, Lecture Schedule, Notice Board and Home page from
-          <code>vulms.vu.edu.pk</code>. It requests Home only when you are not already on it. On
-          Home, it reads the page in front of you. A refresh happens only after something you do:
-          loading a VULMS page, opening the Reminders page or pressing Refresh. It never fetches on
-          a timer, in the background or from a quiz page.
+          your settings: which features are on, your theme, language, appearance, AI provider and
+          model, deadline alert preferences, and where you left its panels;
         </li>
         <li>
-          <strong>Semester-wise grades (VU LMS).</strong> When you open your grade book and a
-          course's credit hours are not yet known, the extension requests your My Study Scheme
-          page once. It does not request the page again until the browser restarts.
+          from your own VULMS pages: grade book results and credit hours (for the SGPA/CGPA
+          dashboard), and what the Reminders page last read (deadlines, fee due dates and
+          balances, lecture schedule, notices and announcements);
+        </li>
+        <li>
+          reminders you write yourself, which notices and announcements you have seen, and which
+          alerts were already shown;
+        </li>
+        <li>a SHA-256 hash of your student ID, to keep students apart on a shared computer;</li>
+        <li>your AI provider API keys, if you enter any (not encrypted, see section 6);</li>
+        <li>
+          logins you save in the Accounts vault (a label, the student ID and the password),
+          encrypted with AES-256-GCM.
         </li>
       </ul>
-
-      <h3 id="university-records">4.3 Records the extension writes to your university's systems</h3>
       <p>
-        The <strong>Lecture bypass</strong> feature (switched on by default; you can switch it
-        off) changes records that your university keeps about you. It never runs on its own:
+        Language, appearance, AI provider and model, and alert preferences follow your Chrome
+        profile through Chrome sync, if you have it turned on. Everything else stays on this
+        computer. Short-lived working state is cleared when the browser closes. The extension
+        does not store quiz content, AI answers, your submitted work or your browsing history.
+      </p>
+
+      <h2 id="leaves-device">3. What leaves your device</h2>
+      <p>Nothing is ever sent to us. Data leaves your device only in these cases.</p>
+
+      <h3 id="ai">3.1 AI help (optional, off by default)</h3>
+      <p>
+        If you turn on <strong>Solve with AI</strong> and enter your own API key, pressing the
+        button sends a fixed instruction, the quiz question you chose with its answer options,
+        the model name and your API key directly to the one provider you selected:
+        <code>api.anthropic.com</code>, <code>api.openai.com</code> or
+        <code>generativelanguage.googleapis.com</code>. It does not send your name, student ID,
+        cookies, the page address or anything else from the page. <strong>Test this key</strong>
+        sends a minimal request with no question in it. The provider's own privacy policy applies
+        to what it receives.
+      </p>
+
+      <h3>3.2 Requests to VULMS in your own session</h3>
+      <p>
+        These go only to <code>vulms.vu.edu.pk</code>, using your signed-in session, the same way
+        your own clicks would.
       </p>
       <ul>
         <li>
-          On a lecture page that has its own completion control, one press of the extension's
-          button marks that lecture complete through the page's own control.
+          <strong>Reminders page:</strong> reads your To Do Calendar, Account Book, Lecture
+          Schedule, Notice Board and Home page, only after you load a VULMS page, open Reminders
+          or press Refresh. Never on a timer, in the background or from a quiz page.
         </li>
         <li>
-          Before it records watch time (described below), it shows a preview of the exact values
-          it will send and waits for a second press.
-        </li>
-        <li>
-          For a whole course, it first lists every lecture it will change and asks you to confirm.
-          It then moves through those lectures one page at a time.
-        </li>
-      </ul>
-      <p>Watch-time records contain the following:</p>
-      <ul>
-        <li>
-          <strong>VU LMS.</strong> It submits a lecture watch-time record through the lecture
-          page's own progress-logging function. The record contains your student ID, the course
-          code, semester, lesson number, content ID, video ID, whether the item is a video, and a
-          number of seconds watched. The extension sets that number itself (600 seconds for a
-          video tab, 8 seconds for a reading tab). It is <strong>not</strong> the time you
-          actually spent on the lecture.
-        </li>
-        <li>
-          <strong>DigiSkills.</strong> It submits the same kind of progress request that the
-          DigiSkills player sends, including the page address, the video identifiers and a time
-          spent. The time spent is two-fifths of the lecture's length (150 seconds if the length
-          cannot be read), not the time you actually spent.
-        </li>
-      </ul>
-      <p>
-        These records go only to the platform concerned, never to us. They cannot be undone from
-        the extension. Whether using this feature is allowed under your institution's academic
-        rules is your responsibility.
-      </p>
-
-      <h3 id="chrome-sync">4.4 Chrome sync</h3>
-      <p>
-        Your preferences in Chrome sync storage travel between your own devices through Google's
-        Chrome sync, the same way your bookmarks do, if you have sync turned on. We cannot see
-        them. API keys, saved logins, grades and Reminders data are never synced. To stop syncing
-        preferences, turn off extension sync in Chrome's settings.
-      </p>
-
-      <h3>4.5 Files you choose to save</h3>
-      <ul>
-        <li>
-          <strong>Screenshots and PDFs</strong> of a quiz question or result are created inside
-          your browser and saved to your Downloads folder. They are not uploaded anywhere.
-        </li>
-        <li>
-          <strong>Backup</strong> (Settings → Backup) saves a file to your computer that contains
-          your preferences, your feature switches and the reminders you wrote. The reminders part
-          covers every student who has used the extension on this Chrome profile. Your API keys
-          are included only if you tick that option, and the file name then says so. If you
-          include them, keep the file private. Saved vault logins, grades and Reminders data are
-          never included. <strong>Restore</strong> reads only a backup that you choose or paste
-          in.
+          <strong>Semester grades:</strong> reads your My Study Scheme page once per browser
+          session, when a course's credit hours are not yet known.
         </li>
       </ul>
 
-      <h3>4.6 Notifications</h3>
+      <h3 id="lecture-bypass">3.3 Lecture bypass (on by default)</h3>
       <p>
-        If you turn on deadline alerts, Chrome asks for your permission first. The alerts are
-        Chrome notifications, built from what the Reminders page last read. They appear on your
-        screen and in your system's notification centre, and they are not sent anywhere else.
-      </p>
-
-      <h2 id="page-changes">5. Changes the extension makes to pages</h2>
-      <p>
-        So that you understand the extension's full technical scope, here is everything it
-        changes on the supported pages. None of these changes sends data anywhere unless section 4
-        says so.
+        This feature changes records your university keeps about you. It runs only when you
+        press its button, and before it records watch time it shows the exact values and asks
+        you to confirm.
       </p>
       <ul>
         <li>
-          <strong>Appearance:</strong> recolours VU LMS in the theme you chose (Light, Dark, Pookie
-          or Spider), adds a loading bar while pages load, highlights the current-lesson link, and
-          adds the extension's buttons and panels to the page.
+          <strong>VU LMS:</strong> marks a lecture complete through the page's own control, or
+          submits a watch-time record with your student ID, course code, semester, lesson, content
+          and video IDs and a fixed time (600 seconds for a video, 8 for a reading), not the time
+          you actually spent.
         </li>
         <li>
-          <strong>Navigation:</strong> Quick jump and Resume lesson press the page's own links for
-          you. The Reminders page adds an entry to the VULMS sidebar.
-        </li>
-        <li>
-          <strong>Copy and paste:</strong> Assignment copy-paste re-enables copy, paste and text
-          selection that the page blocks in the assignment solution editor.
-        </li>
-        <li>
-          <strong>Quiz firewall bypass (switched on by default; you can switch it off):</strong>
-          on VU quiz question pages, the extension stops the quiz page from detecting that its tab
-          has lost focus or its window has been hidden. This changes what the quiz page can observe
-          and report about your attempt. It stores nothing and sends nothing.
-        </li>
-        <li>
-          <strong>Accounts vault:</strong> fills the sign-in form with an account you pick. It
-          never presses Sign In for you.
-        </li>
-        <li>
-          <strong>Lecture bypass:</strong> see <a href="#university-records">section 4.3</a>.
+          <strong>DigiSkills:</strong> submits a progress record with a time of two-fifths of the
+          video's length (150 seconds if the length cannot be read).
         </li>
       </ul>
       <p>
-        To run some of these, the extension runs a fixed set of functions that are bundled inside
-        the extension package in the page itself. It never downloads or runs code from the
-        internet, and it treats AI answers as data, never as code.
+        These records go only to that platform and cannot be undone from the extension. Whether
+        this feature is allowed under your institution's rules is your responsibility.
       </p>
 
-      <h2 id="permissions">6. Permissions and why they are needed</h2>
+      <h3>3.4 Files and alerts</h3>
+      <ul>
+        <li>
+          Screenshots, PDFs and backup files are saved to your computer only. A backup includes
+          your API keys only if you tick that option. It never includes vault logins, grades or
+          Reminders data.
+        </li>
+        <li>
+          Deadline alerts are Chrome notifications, shown only on your screen. Chrome asks for
+          your permission first.
+        </li>
+      </ul>
+
+      <h2 id="page-changes">4. What the extension changes on pages</h2>
+      <p>
+        On the supported sites it recolours VU LMS in your chosen theme, redraws the VU sign-in
+        and Home pages, and adds a loading bar and its own buttons. On the redrawn sign-in page,
+        what you type goes only into VU's own sign-in form on the same page, and VU signs you in
+        as usual when you press Sign in. It also:
+      </p>
+      <ul>
+        <li>re-enables copy and paste in the assignment editor;</li>
+        <li>
+          <strong>Quiz firewall bypass</strong> (on by default): stops VU quiz pages from
+          detecting that you switched tabs or hid the window. It stores and sends nothing;
+        </li>
+        <li>
+          <strong>Accounts vault:</strong> fills the sign-in form with an account you pick, but
+          never presses Sign in for you.
+        </li>
+      </ul>
+      <p>
+        All code is bundled in the extension. It never downloads or runs remote code, and it
+        treats AI answers as data, never as code.
+      </p>
+
+      <h2 id="permissions">5. Permissions</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Permission</th>
-              <th>Why it is needed</th>
+              <th>Why</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Storage</td>
-              <td>
-                Save your settings, feature switches, API keys, vault, grades and Reminders data on
-                your device, as described in section 3.2
-              </td>
+              <td>Save the data in section 2</td>
             </tr>
             <tr>
               <td>Tabs</td>
               <td>
-                Let the toolbar popup see which page you are on, so it can show the tools that work
-                there; offer to reload a supported tab that was opened before the extension was
-                installed; send keyboard shortcuts to the active tab; and find or open the
-                extension's own pages. Tab addresses are compared on your device only and are never
-                stored or sent
+                Show which tools work on the current page, reload supported tabs, and send keyboard
+                shortcuts. Tab addresses are never stored or sent
               </td>
             </tr>
             <tr>
               <td>Context menus</td>
-              <td>Add the extension's actions to the right-click menu on supported sites only</td>
+              <td>Right-click actions, on the supported sites only</td>
             </tr>
             <tr>
               <td>Downloads</td>
-              <td>Save a screenshot or PDF you asked for to your Downloads folder</td>
+              <td>Save a screenshot or PDF you asked for</td>
             </tr>
             <tr>
               <td>Clipboard write</td>
-              <td>Copy a question to your clipboard when you press Copy</td>
+              <td>Copy a question when you press Copy</td>
             </tr>
             <tr>
               <td>Scripting</td>
               <td>
-                Apply your theme before a page appears; load the bundled screenshot tool when you
-                press Screenshot; load the Reminders page; and run the bundled page functions
-                described in section 5. This happens only on the supported sites
+                Apply your theme before the page appears, and run the extension's bundled tools on
+                the supported sites
               </td>
             </tr>
             <tr>
               <td>Offscreen</td>
-              <td>
-                Lay out a PDF in a hidden page inside the extension; it closes once the file is
-                saved
-              </td>
+              <td>Build a PDF in a hidden extension page</td>
             </tr>
             <tr>
               <td>Alarms</td>
-              <td>Schedule the one timer that shows deadline alerts, only while alerts are on</td>
+              <td>Time deadline alerts, only while they are on</td>
             </tr>
             <tr>
               <td>Notifications (optional)</td>
-              <td>Show deadline alerts. Requested only when you turn alerts on</td>
+              <td>Show deadline alerts. Asked for only when you turn them on</td>
             </tr>
             <tr>
+              <td>Site access</td>
               <td>
-                Access to <code>vu.edu.pk</code>, <code>digiskills.pk</code>,
-                <code>netacad.com</code>
+                <code>vu.edu.pk</code>, <code>digiskills.pk</code> and <code>netacad.com</code> for
+                the features; the three AI addresses for Solve with AI
               </td>
-              <td>Run the extension's features on those learning platforms, and nowhere else</td>
-            </tr>
-            <tr>
-              <td>
-                Access to <code>api.anthropic.com</code>, <code>api.openai.com</code>,
-                <code>generativelanguage.googleapis.com</code>
-              </td>
-              <td>Send your question to the one AI provider you chose, when you ask</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p>
-        The extension has no access to any other website, to your email or to the content of your
-        other tabs.
-      </p>
 
-      <h2 id="security">7. Security</h2>
-      <p>
-        We have designed the extension to keep your data private, but please understand the
-        limits of each protection:
-      </p>
+      <h2 id="security">6. Security</h2>
       <ul>
         <li>
-          <strong>Extension storage</strong> is private to this extension. Websites, including VU
-          LMS, and other extensions cannot read it.
+          Extension storage is private to this extension. Websites and other extensions cannot
+          read it.
         </li>
         <li>
-          <strong>API keys are stored without encryption.</strong> Only the extension's background
-          process uses them, and only to send a request to the provider they belong to. However,
-          someone with access to your computer and your signed-in Chrome profile could read them,
-          as they could your saved passwords. On a shared computer, use a key with a spending
-          limit, or do not save one.
+          <strong>API keys are not encrypted.</strong> Anyone with access to your Chrome profile
+          could read them. On a shared computer, use a key with a spending limit.
         </li>
         <li>
-          <strong>Vault logins are encrypted with AES-256-GCM</strong>, but the encryption key is
-          kept in the same storage. This protects the contents against casual reading, for example
-          in a copied browser profile or on a shared PC. It does not protect them against someone
-          who can run code inside the extension or who has full access to your Chrome profile.
+          <strong>Vault logins are encrypted, but the key is stored beside them.</strong> This
+          guards against casual reading, not against someone with full access to your profile.
         </li>
         <li>
-          <strong>The student ID hash is not anonymisation.</strong> VU student IDs follow a short,
-          predictable format, so someone with access to your storage could recover an ID by trying
-          likely values. The hash keeps students' reminders apart; it is not a privacy guarantee.
+          <strong>The student ID hash can be guessed back</strong>, because VU IDs follow a short
+          format. It keeps students apart; it does not anonymise them.
         </li>
-        <li>
-          <strong>Backup files</strong> may contain your API keys if you choose to include them.
-          Store them as carefully as you would a password.
-        </li>
+        <li>Keep a backup file private if it includes your API keys.</li>
       </ul>
-      <p>
-        No method of storage or transmission is completely secure. Requests to AI providers and to
-        your learning platforms use the encrypted (HTTPS) connections that those services provide.
-      </p>
 
-      <h2 id="retention">8. Data retention and deletion</h2>
-      <p>
-        All data the extension stores stays until you delete it or remove the extension. We hold
-        no copy, so there is nothing for us to retain or delete.
-      </p>
+      <h2 id="deletion">7. Deleting your data</h2>
       <ul>
+        <li><strong>Remove the extension</strong> to delete everything it stored.</li>
         <li>
-          <strong>Remove the extension</strong> to delete everything it stored on this computer,
-          including API keys, vault logins, grades and Reminders data.
+          <strong>Settings → Backup settings → Clear saved study data</strong> deletes grades,
+          credit hours and Reminders data. Reminders you wrote stay until you delete them.
         </li>
         <li>
-          <strong>Settings → Backup → Clear saved study data</strong> deletes what was read from
-          VULMS: grades, credit hours, the Reminders page's saved readings, which announcements you
-          opened, and the alert history. Reminders you wrote yourself stay until you delete them on
-          the Reminders page or remove the extension.
+          Remove an API key in <strong>Settings → AI provider</strong>, or all vault logins with
+          <strong>Reset vault</strong>.
         </li>
         <li>
-          <strong>Settings → AI provider:</strong> remove a saved key to delete only that key.
-        </li>
-        <li>
-          <strong>Accounts vault:</strong> delete each account in the vault panel, or press Reset
-          vault to empty it at once.
-        </li>
-        <li>
-          <strong>Synced preferences</strong> are removed when you remove the extension while
-          signed in to the Chrome profile that holds them.
-        </li>
-        <li><strong>Session data</strong> is cleared automatically when the browser closes.</li>
-        <li>
-          <strong>Data already sent</strong> to an AI provider can only be deleted through that
-          provider. Records written to VU or DigiSkills (section 4.3) can only be changed by that
-          platform.
+          Data sent to an AI provider, or records written to VU or DigiSkills, can only be deleted
+          by that provider or platform.
         </li>
       </ul>
+      <p>We hold no copy of your data, so there is nothing for us to delete.</p>
 
-      <h2 id="rights">9. Your choices and rights</h2>
-      <ul>
-        <li>
-          Every feature can be switched on or off in the toolbar popup or in Settings. Switching a
-          feature off stops it in open tabs as well.
-        </li>
-        <li>
-          The AI feature, deadline alerts and notifications stay off unless you turn them on.
-        </li>
-        <li>
-          You can see and remove everything the extension stores by using the controls in
-          section 8.
-        </li>
-      </ul>
-      <p>
-        Depending on where you live, data-protection laws may give you rights to access, correct,
-        delete or move your personal data, or to object to its processing. Because we do not
-        collect or receive any personal data, we hold nothing to provide, correct or delete. You
-        can exercise these rights over data on your device yourself, using the controls above. For
-        data you send to an AI provider, contact that provider. For records held by your
-        university or DigiSkills, contact that institution.
-      </p>
-
-      <h2 id="sharing">10. Sharing, sale and the Chrome Web Store User Data Policy</h2>
-      <p>
-        We do not sell, rent, trade or share your information with anyone. The only transfers are
-        the ones you start yourself and that section 4 describes: a question sent to the AI
-        provider you chose, and requests to the learning platform you are signed in to.
-      </p>
+      <h2 id="user-data-policy">8. Chrome Web Store User Data Policy</h2>
       <p>
         The extension's use of information complies with the
-        <a
-          href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq"
-          rel="noopener noreferrer"
-          target="_blank"
+        <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq"
           >Chrome Web Store User Data Policy</a
-        >, including its
-        <a
-          href="https://developer.chrome.com/docs/webstore/program-policies/limited-use"
-          rel="noopener noreferrer"
-          target="_blank"
+        >, including the
+        <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use"
           >Limited Use</a
         >
-        requirements:
+        requirements. Information is used only to provide the features above. It is not sold,
+        not used for advertising, credit or lending, and not transferred to anyone except the AI
+        provider you chose, when you ask. No person reads your data, because none of it reaches
+        us.
       </p>
-      <ul>
-        <li>
-          information is used only to provide the features described in this policy, which serve
-          the extension's single purpose of helping students use their learning platforms;
-        </li>
-        <li>
-          information is not transferred to third parties, except to the AI provider you chose, at
-          your request, to provide the AI feature;
-        </li>
-        <li>information is not used for advertising, and is not sold;</li>
-        <li>information is not used to determine creditworthiness or for lending; and</li>
-        <li>no person reads your information, because none of it reaches us.</li>
-      </ul>
 
-      <h2 id="third-parties">11. Third-party services and links</h2>
+      <h2 id="other">9. Other</h2>
       <ul>
         <li>
-          <strong>AI providers.</strong> If you use Solve with AI, your request is handled under
-          the privacy policy of the provider you chose:
-          <a href="https://www.anthropic.com/legal/privacy" rel="noopener noreferrer" target="_blank"
-            >Anthropic</a
-          >,
-          <a
-            href="https://openai.com/policies/privacy-policy"
-            rel="noopener noreferrer"
-            target="_blank"
-            >OpenAI</a
-          >
-          or
-          <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank"
-            >Google</a
+          <strong>Third parties:</strong> AI requests are covered by the provider's own policy
+          (<a href="https://www.anthropic.com/legal/privacy">Anthropic</a>,
+          <a href="https://openai.com/policies/privacy-policy">OpenAI</a>,
+          <a href="https://policies.google.com/privacy">Google</a>). VU, DigiSkills and Cisco
+          handle your activity on their sites under their own policies. Links to other websites
+          open in a new tab.
+        </li>
+        <li>
+          <strong>Children:</strong> the extension is for university and skills-programme students
+          and is not directed at children under 13.
+        </li>
+        <li>
+          <strong>Changes:</strong> this policy is updated before any change in how the extension
+          handles data ships, and the effective date changes with it. It is available in the
+          extension at <strong>Settings → About → Privacy policy</strong> and at
+          <a href="https://extension.vulmstools.com/privacy.html"
+            >https://extension.vulmstools.com/privacy.html</a
           >.
         </li>
         <li>
-          <strong>Learning platforms.</strong> VU, DigiSkills and Cisco Networking Academy process
-          your activity on their sites under their own policies, including any records the
-          extension writes for you (section 4.3).
-        </li>
-        <li>
-          <strong>Links.</strong> The extension contains links to the AI providers' key pages and
-          to <code>vulmstools.com</code>. These open in a new tab. Those websites are not part of
-          the extension and have their own privacy policies.
+          <strong>Contact:</strong> use the support contact on the extension's Chrome Web Store
+          listing.
         </li>
       </ul>
-
-      <h2 id="children">12. Children's privacy</h2>
-      <p>
-        The extension is designed for university and skills-programme students. It is not
-        directed at children under 13, and it does not knowingly collect personal information from
-        anyone, including children, because it collects no personal information at all.
-      </p>
-
-      <h2 id="international">13. International users</h2>
-      <p>
-        The extension runs on your device wherever you are. We do not transfer your data anywhere.
-        If you use the AI feature, your question goes to the provider you chose, which may process
-        it in other countries under its own policy.
-      </p>
-
-      <h2 id="changes">14. Changes to this policy</h2>
-      <p>
-        When the extension's handling of data changes, this policy is updated before the change
-        ships, and the effective date at the top changes. Any new place that the extension sends
-        data will be listed here before it ships. The policy for the version you have installed is
-        always available inside the extension, at <strong>Settings → About → Privacy</strong>.
-        The current version is also published at
-        <a href="https://extension.vulmstools.com/privacy.html"
-          >https://extension.vulmstools.com/privacy.html</a
-        >.
-      </p>
-
-      <h2 id="contact">15. Contact</h2>
-      <p>
-        If you have questions about this policy, or want to report behaviour that does not match
-        it, please use the support contact on the extension's Chrome Web Store listing.
-      </p>
-
-      <h2 id="storage-reference">Appendix: storage reference</h2>
-      <p>
-        For full transparency, this table lists every entry the extension keeps in Chrome's
-        extension storage. <strong>Local</strong> storage stays on this computer.
-        <strong>Sync</strong> storage follows your Chrome profile through Chrome sync.
-        <strong>Session</strong> storage is held in memory only and cleared when the browser
-        closes.
-      </p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Entry</th>
-              <th>Area</th>
-              <th>Holds</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>featureState</code></td>
-              <td>Local</td>
-              <td>Every feature's on/off switch, and the LMS theme</td>
-            </tr>
-            <tr>
-              <td><code>feature:lmsTheme:lastOn</code></td>
-              <td>Local</td>
-              <td>The theme the keyboard shortcut turns back on</td>
-            </tr>
-            <tr>
-              <td><code>feature:&lt;feature&gt;:panel</code></td>
-              <td>Local</td>
-              <td>Where a feature's panel was left, and whether it is folded</td>
-            </tr>
-            <tr>
-              <td><code>dock:panel</code></td>
-              <td>Local</td>
-              <td>Where the page dock was left, and whether it is folded</td>
-            </tr>
-            <tr>
-              <td><code>feature:quickJump:tipShown</code></td>
-              <td>Local</td>
-              <td>Whether the Quick jump tip has been shown</td>
-            </tr>
-            <tr>
-              <td><code>feature:semesterGrades:creditHours</code></td>
-              <td>Local</td>
-              <td>Credit hours by course code, from the study scheme</td>
-            </tr>
-            <tr>
-              <td><code>gradeHistory</code></td>
-              <td>Local</td>
-              <td>Grade book results (semester, course code, grade point)</td>
-            </tr>
-            <tr>
-              <td><code>remindersCache</code></td>
-              <td>Local</td>
-              <td>What the Reminders page read from VULMS, per student hash</td>
-            </tr>
-            <tr>
-              <td><code>myReminders</code></td>
-              <td>Local</td>
-              <td>Reminders you wrote, per student hash</td>
-            </tr>
-            <tr>
-              <td><code>remindersSeen</code></td>
-              <td>Local</td>
-              <td>Notices already seen</td>
-            </tr>
-            <tr>
-              <td><code>reminderLog</code></td>
-              <td>Local</td>
-              <td>Deadline alerts already shown</td>
-            </tr>
-            <tr>
-              <td><code>seenAnnouncementIds</code></td>
-              <td>Local</td>
-              <td>Notices and course announcements you opened, with when, per student hash</td>
-            </tr>
-            <tr>
-              <td><code>aiKeys</code></td>
-              <td>Local</td>
-              <td>Your AI provider API keys (not encrypted; never synced)</td>
-            </tr>
-            <tr>
-              <td><code>feature:accountVault:vault</code></td>
-              <td>Local</td>
-              <td>Saved vault logins, as one AES-256-GCM encrypted envelope (never synced)</td>
-            </tr>
-            <tr>
-              <td><code>feature:accountVault:key</code></td>
-              <td>Local</td>
-              <td>The vault's encryption key</td>
-            </tr>
-            <tr>
-              <td><code>schemaVersion</code></td>
-              <td>Local</td>
-              <td>The storage format version, for upgrades</td>
-            </tr>
-            <tr>
-              <td><code>settings</code></td>
-              <td>Sync</td>
-              <td>
-                Language, appearance, motion, log level, AI provider and model, deadline alert
-                preferences
-              </td>
-            </tr>
-            <tr>
-              <td><code>reminderLease</code></td>
-              <td>Session</td>
-              <td>The refresh in progress, so only one tab checks VULMS at a time</td>
-            </tr>
-            <tr>
-              <td><code>reminderRetryAt</code></td>
-              <td>Session</td>
-              <td>When the next alert attempt may run after Chrome refused one</td>
-            </tr>
-            <tr>
-              <td><code>feature:lectureBypass:run</code></td>
-              <td>Session</td>
-              <td>A lecture run in progress</td>
-            </tr>
-            <tr>
-              <td><code>feature:semesterGrades:schemeRead</code></td>
-              <td>Session</td>
-              <td>That the study scheme was already read this browser session</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </main>
   </body>
 </html>
