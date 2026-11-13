@@ -16,7 +16,7 @@
   </head>
   <body>
     <h1>VULMS Tools Privacy Policy</h1>
-    <p class="meta">Effective date: 13 November 2026 | Applies to version 6.5.0 and later | Developer: vulmstools</p>
+    <p class="meta">Effective date: 14 November 2026 | Applies to version 6.5.0 and later | Developer: vulmstools</p>
 
     <p>VULMS Tools is a Chrome extension for students of the Virtual University of Pakistan. It works only on VU LMS (vulms.vu.edu.pk and other vu.edu.pk pages), DigiSkills (digiskills.pk) and Cisco NetAcad (netacad.com). This policy explains what user data the extension collects, how it uses that data, where it is stored, who it is shared with, and how you can delete it.</p>
 
@@ -25,6 +25,7 @@
       <ul>
         <li>No analytics, no tracking, no ads and no sign-up. We never sell your data.</li>
         <li>Almost everything the extension keeps stays in your own Chrome browser.</li>
+        <li>While you take a quiz on VU LMS, the extension records the quiz on your device, without you pressing anything, and saves a PDF of it to your Downloads folder when the quiz ends. This record never leaves your computer.</li>
         <li>The only data sent to our AI service is the quiz question you ask VULMS AI to solve, and only when you press Solve with AI. The service passes that question to Google's Gemini AI service to get the answer.</li>
       </ul>
     </div>
@@ -37,6 +38,7 @@
       <li><strong>Saved logins.</strong> The VU student IDs and passwords you choose to save in the Accounts vault.</li>
       <li><strong>Your last Home visit.</strong> When you last opened the VU LMS Home page, and the grade results it showed you then.</li>
       <li><strong>Quiz and discussion questions.</strong> The text of a question and its answer options, when you press Copy, Screenshot, Save as PDF or Solve with AI.</li>
+      <li><strong>Your quiz attempts.</strong> While you take a quiz on VU LMS, the extension records it automatically, without you pressing any button: for each question, the quiz's title, the question's number and text, its answer options, which option you have selected, and the web address of any picture in the question (not the picture itself). It reads the quiz page again about every second while the quiz is open, so the record follows your changes. Before saving, it removes the student IDs, registration numbers and names it recognises in that text.</li>
       <li><strong>Lecture details.</strong> The lesson list and video length on a lecture page, when you use Lecture bypass.</li>
       <li><strong>Your own entries.</strong> Reminders you write yourself and your settings (LMS theme, layout and whether the sidebar is folded, which features are on, alert preferences).</li>
       <li><strong>Connection details.</strong> When you press Solve with AI, our AI service receives, like any website, the IP address the request comes from and your browser type. It also receives the extension's ID, which is the same for everyone who installs VULMS Tools from the Chrome Web Store, so the service can check that the request comes from the extension.</li>
@@ -51,6 +53,7 @@
       <li><strong>Your last Home visit</strong> lets Home show what is new since then: new notices and new grade results.</li>
       <li><strong>Saved logins</strong> fill the VU sign-in page when you press Fill. They are filled only on VU LMS's own sign-in page (vulms.vu.edu.pk), and only when you click Fill yourself. The extension never presses Sign In for you.</li>
       <li><strong>Questions</strong> are copied to your clipboard, saved as an image or PDF, or sent to VULMS AI for a suggested answer, depending on the button you press.</li>
+      <li><strong>Quiz attempts</strong> are used only to make a PDF of that attempt. When the quiz ends, the PDF is saved to your Downloads folder automatically, and a &quot;Download Quiz PDF&quot; button lets you save it again.</li>
       <li><strong>Lecture details</strong> are used when you press the Lecture bypass button and confirm. The extension then sends VU LMS or DigiSkills the same watch-time record the site's own video player sends, with a fixed watch time. This changes your lecture progress on that site, and the extension cannot undo it.</li>
       <li><strong>IP address, browser type and the extension's ID</strong> are used by our AI service only to keep VULMS AI working and to stop abuse: it counts how often one address asks, and holds back an address that asks too often.</li>
     </ul>
@@ -58,12 +61,12 @@
 
     <h2>3. How the data is stored</h2>
     <ul>
-      <li><strong>On your device.</strong> Grades, credit hours, deadline data, your reminders, alert history, your last Home visit, the hashed student ID and saved logins are kept in Chrome's extension storage on your computer (chrome.storage.local). Only this extension can read it.</li>
+      <li><strong>On your device.</strong> Grades, credit hours, deadline data, your reminders, alert history, your last Home visit, the hashed student ID, saved logins and your last five quiz attempts are kept in Chrome's extension storage on your computer (chrome.storage.local). Only this extension can read it.</li>
       <li><strong>Saved logins</strong> are encrypted (AES-GCM) before they are stored. The encryption key is kept in the same browser storage, so this protects the stored logins from casual reading but not from someone who can use your Chrome profile. Save logins only on a computer you trust.</li>
       <li><strong>Settings</strong> are kept in chrome.storage.sync. If you are signed in to Chrome with sync turned on, Chrome copies them to your other devices through your Google account. Settings hold no personal data.</li>
       <li><strong>Short-lived working data</strong> (a lecture run in progress, a Reminders refresh, and where Home's "New since" starts for this browser session) is kept in chrome.storage.session, which Chrome clears when it closes.</li>
       <li><strong>The Reminders tab you chose</strong> (for example Quizzes) is kept for that visit in the tab's session storage, which the browser clears when you close the tab.</li>
-      <li><strong>Files you save</strong> (screenshots, PDFs of your quiz results, settings backups) go to your Downloads folder or the place you choose. Copied text goes to your clipboard.</li>
+      <li><strong>Files you save</strong> (screenshots, PDFs of your quiz results, settings backups) go to your Downloads folder or the place you choose. The PDF of a quiz attempt is saved to your Downloads folder automatically when the quiz ends. Copied text goes to your clipboard.</li>
       <li><strong>On our AI service.</strong> VULMS AI does not save the questions it receives or the answers it gives: it passes each question to Google's Gemini service (see section 4) and returns the answer. It does not log or store your IP address or your browser type: the address is held in memory only briefly, to count requests, and is never written to storage or to a log. Its log keeps the time of each request and which AI model answered, never the question, and is deleted automatically within 30 days.</li>
     </ul>
     <p>Everything sent to VULMS AI travels over an encrypted (HTTPS) connection. The extension runs only code that ships inside it and never downloads code to run.</p>
@@ -84,6 +87,7 @@
     <ul>
       <li>Data on your device stays until you delete it or remove the extension.</li>
       <li>In the extension's Settings, "Clear saved study data" removes the grades, credit hours and reminders data read from VU LMS, the grade results Home remembers between visits, and the alert history. You can delete your own reminders on the Reminders page and each saved login in the Accounts vault.</li>
+      <li>Quiz attempts are kept for your last five quizzes; when a sixth begins, the oldest is deleted. &quot;Clear saved study data&quot; does not remove them, and there is no setting that turns the recording off: removing the extension deletes them. The PDFs already in your Downloads folder stay until you delete them.</li>
       <li>Removing the extension from Chrome deletes everything it stored in Chrome. Files you saved to your computer stay until you delete them.</li>
       <li>VULMS AI's log is deleted automatically within 30 days. It holds no question, IP address, name or student ID.</li>
     </ul>
@@ -95,7 +99,7 @@
       <li><strong>Tabs:</strong> to see whether the open tab is a supported site, send keyboard shortcuts to it and open the extension's pages.</li>
       <li><strong>Scripting:</strong> to apply your LMS theme before a page appears and to run the extension's own built-in tools on the supported sites.</li>
       <li><strong>Context menus:</strong> to add the extension's tools to the right-click menu on the supported sites.</li>
-      <li><strong>Downloads:</strong> to save a screenshot or PDF you ask for.</li>
+      <li><strong>Downloads:</strong> to save a screenshot or PDF you ask for. (The PDF of a quiz attempt is saved by the page itself, as a link would save a file, not through this permission.)</li>
       <li><strong>Clipboard write:</strong> to copy a question when you press Copy.</li>
       <li><strong>Offscreen:</strong> to build the PDF of your quiz result.</li>
       <li><strong>Alarms:</strong> to time the next deadline alert. The alarm only reads data already on your device; it fetches nothing and contacts no server.</li>
