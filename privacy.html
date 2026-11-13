@@ -16,7 +16,7 @@
   </head>
   <body>
     <h1>VULMS Tools Privacy Policy</h1>
-    <p class="meta">Effective date: 3 November 2026 | Applies to version 6.0.0 and later | Developer: vulmstools</p>
+    <p class="meta">Effective date: 13 November 2026 | Applies to version 6.5.0 and later | Developer: vulmstools</p>
 
     <p>VULMS Tools is a Chrome extension for students of the Virtual University of Pakistan. It works only on VU LMS (vulms.vu.edu.pk and other vu.edu.pk pages), DigiSkills (digiskills.pk) and Cisco NetAcad (netacad.com). This policy explains what user data the extension collects, how it uses that data, where it is stored, who it is shared with, and how you can delete it.</p>
 
@@ -25,7 +25,7 @@
       <ul>
         <li>No analytics, no tracking, no ads and no sign-up. We never sell your data.</li>
         <li>Almost everything the extension keeps stays in your own Chrome browser.</li>
-        <li>The only data sent to our server is the quiz question you ask VULMS AI to solve, and only when you press Solve with AI.</li>
+        <li>The only data sent to our AI service is the quiz question you ask VULMS AI to solve, and only when you press Solve with AI. The service passes that question to Google's Gemini AI service to get the answer.</li>
       </ul>
     </div>
 
@@ -39,7 +39,7 @@
       <li><strong>Quiz and discussion questions.</strong> The text of a question and its answer options, when you press Copy, Screenshot, Save as PDF or Solve with AI.</li>
       <li><strong>Lecture details.</strong> The lesson list and video length on a lecture page, when you use Lecture bypass.</li>
       <li><strong>Your own entries.</strong> Reminders you write yourself and your settings (LMS theme, layout and whether the sidebar is folded, which features are on, alert preferences).</li>
-      <li><strong>Connection details.</strong> When you press Solve with AI, our server receives, like any website, the IP address the request comes from and your browser type. It also receives the extension's ID, which is the same for everyone who installs VULMS Tools from the Chrome Web Store, so the server can check that the request comes from the extension.</li>
+      <li><strong>Connection details.</strong> When you press Solve with AI, our AI service receives, like any website, the IP address the request comes from and your browser type. It also receives the extension's ID, which is the same for everyone who installs VULMS Tools from the Chrome Web Store, so the service can check that the request comes from the extension.</li>
     </ul>
     <p>The extension checks the address of the open tab only to see whether it is a supported site. It never stores or sends that address. We do not collect your name, email address, payment details, keystrokes, or your browsing on any other website.</p>
 
@@ -52,9 +52,9 @@
       <li><strong>Saved logins</strong> fill the VU sign-in page when you press Fill. They are filled only on VU LMS's own sign-in page (vulms.vu.edu.pk), and only when you click Fill yourself. The extension never presses Sign In for you.</li>
       <li><strong>Questions</strong> are copied to your clipboard, saved as an image or PDF, or sent to VULMS AI for a suggested answer, depending on the button you press.</li>
       <li><strong>Lecture details</strong> are used when you press the Lecture bypass button and confirm. The extension then sends VU LMS or DigiSkills the same watch-time record the site's own video player sends, with a fixed watch time. This changes your lecture progress on that site, and the extension cannot undo it.</li>
-      <li><strong>IP address, browser type and the extension's ID</strong> are used by our server only to keep VULMS AI working and to stop abuse.</li>
+      <li><strong>IP address, browser type and the extension's ID</strong> are used by our AI service only to keep VULMS AI working and to stop abuse: it counts how often one address asks, and holds back an address that asks too often.</li>
     </ul>
-    <p>We do not use your data for advertising, profiling, credit checks or lending, and no person reads it.</p>
+    <p>We do not use your data for advertising, profiling, credit checks or lending, and no person at VULMS Tools reads it.</p>
 
     <h2>3. How the data is stored</h2>
     <ul>
@@ -64,17 +64,19 @@
       <li><strong>Short-lived working data</strong> (a lecture run in progress, a Reminders refresh, and where Home's "New since" starts for this browser session) is kept in chrome.storage.session, which Chrome clears when it closes.</li>
       <li><strong>The Reminders tab you chose</strong> (for example Quizzes) is kept for that visit in the tab's session storage, which the browser clears when you close the tab.</li>
       <li><strong>Files you save</strong> (screenshots, PDFs of your quiz results, settings backups) go to your Downloads folder or the place you choose. Copied text goes to your clipboard.</li>
-      <li><strong>On our server.</strong> VULMS AI does not save the questions it receives or the answers it gives. Its web server log keeps the IP address, time and browser type of each request, never the question, and deletes them automatically within 30 days.</li>
+      <li><strong>On our AI service.</strong> VULMS AI does not save the questions it receives or the answers it gives: it passes each question to Google's Gemini service (see section 4) and returns the answer. It does not log or store your IP address or your browser type: the address is held in memory only briefly, to count requests, and is never written to storage or to a log. Its log keeps the time of each request and which AI model answered, never the question, and is deleted automatically within 30 days.</li>
     </ul>
     <p>Everything sent to VULMS AI travels over an encrypted (HTTPS) connection. The extension runs only code that ships inside it and never downloads code to run.</p>
 
     <h2>4. Who we share data with</h2>
     <ul>
       <li>We do not sell, rent or trade user data, and we do not share it with advertisers or data brokers.</li>
-      <li><strong>VULMS AI (ai.vulmstools.com).</strong> When you press Solve with AI, the question and its options go only to VULMS AI, the extension's own AI service, run by the developer on its own server. The AI model runs on that server, and the question is not passed to any other company or AI service. No name, student ID, password, grades or cookies are sent.</li>
+      <li><strong>VULMS AI (ai.vulmstools.com).</strong> When you press Solve with AI, the question and its options go to VULMS AI, the extension's own AI service, run by the developer on Cloudflare's network. No name, student ID, password, grades or cookies are sent.</li>
+      <li><strong>Google (Gemini).</strong> VULMS AI does not run an AI model of its own. Our AI service sends the question and its options to Google's Gemini service, which writes the suggested answer, and sends that answer back to you. Google receives the question from our service, not from your browser, so it does not receive your IP address, your browser type or anything else that identifies you. Google handles the question under its own terms for the Gemini service: it may keep the question and the answer, use them to improve its products, and have its reviewers read them. So do not press Solve with AI on a question that contains personal information.</li>
+      <li><strong>Cloudflare.</strong> VULMS AI is hosted on Cloudflare, so a request to it travels through Cloudflare's network. Cloudflare handles the request, with your IP address, your browser type and the question in it, only to deliver the service and protect it from attacks, under its own privacy policy. It is not given your name, your student ID or anything else about you.</li>
       <li><strong>VU LMS, DigiSkills and Cisco NetAcad.</strong> The extension talks to these sites only in your own signed-in session, the way your own clicks would: it reads pages, and sends a lecture record when you confirm Lecture bypass. On a VU LMS page that has no menu of its own, such as Voucher Installments, the extension adds a Home link that opens VU LMS Home in the same tab; it is an ordinary link and sends nothing else. What those sites keep is covered by their own privacy policies.</li>
       <li><strong>Google, through Chrome sync,</strong> receives your settings only if you have turned on sync in Chrome.</li>
-      <li>We disclose server logs only if the law requires it.</li>
+      <li>We disclose logs only if the law requires it.</li>
     </ul>
     <p>The extension contacts no other website. Links to the VULMS Tools website (vulmstools.com) open it only when you click them. The Study materials buttons on a course page and on each course on Home open that course's page there, so the page address names the course code (for example CS101); the extension sends the website nothing else. The Math Tools and Word &amp; Sheet links in the sidebar open those tools on vulmstools.com in a new tab, and the invite at the top of Home opens the VULMS Tools WhatsApp channel (whatsapp.com) in a new tab. They open only when you click them, and the extension sends those pages no data. What WhatsApp collects when you open or follow the channel is covered by WhatsApp's own privacy policy.</p>
 
@@ -83,7 +85,7 @@
       <li>Data on your device stays until you delete it or remove the extension.</li>
       <li>In the extension's Settings, "Clear saved study data" removes the grades, credit hours and reminders data read from VU LMS, the grade results Home remembers between visits, and the alert history. You can delete your own reminders on the Reminders page and each saved login in the Accounts vault.</li>
       <li>Removing the extension from Chrome deletes everything it stored in Chrome. Files you saved to your computer stay until you delete them.</li>
-      <li>Server logs are deleted automatically within 30 days. They hold no name or student ID.</li>
+      <li>VULMS AI's log is deleted automatically within 30 days. It holds no question, IP address, name or student ID.</li>
     </ul>
 
     <h2>6. Permissions and why they are needed</h2>
